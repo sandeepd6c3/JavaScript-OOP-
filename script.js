@@ -84,30 +84,36 @@
 
 
 
-function createToaster(config) {
-    return function (str) {
+//     --------------!!!!!! This Keyword !!!!!!----------
 
-       let div= document.createElement("div");
-       div.textContent=str;
-       div.className=`inline-block ${config.theme==="dark" ? "bg-gray-800 text-white" : "bg-gray-100 text-black"} px-6 py-3 rounded shadow-lg pointer-events-none`;
 
-       document.querySelector(".parent").appendChild(div);
+// Global Scope window hoti hai 
+// console.log(this);
 
-       setTimeout(() => {
-        document.querySelector(".parent").removeChild(div);
-       },config.duration*1000)
-    };
-}
+// Functional Scope me bhi window hoti hai 
+// function fun(){
+//     console.log(this);
+    
+// }
+// fun();
 
-let toaster=createToaster({
-    positionX: "right",
-    positionY: "",
-    theme: "light",
-    duration: 3,
-});
 
-toaster("Download Done");
+// Method Scope me Object hi hoti hai 
 
-setTimeout(() => {
-    toaster("Harsh accepted your request ")
-}, 2000);
+// let obj = {
+//     name: "sandeep",
+//     age: 21,
+//     sayname: function () {
+//         console.log(this);
+
+//     },
+// };
+
+// obj.sayname();
+
+// ------!!!!!! Event handler pr this keyword 
+
+// document.querySelector("h1").addEventListener("click",function(){
+    
+//     console.log(this.style.backgroundColor="red");
+// })
