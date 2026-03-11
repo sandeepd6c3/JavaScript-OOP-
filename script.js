@@ -213,20 +213,97 @@
 
 // ------------------------- Object  Oriented Javascript --------------
 
-function LandRover(name,price,color,company){
+//  function LandRover(name,price,color,company){
 
-  this.name=name;
-  this.price=price;
-  this.color=color;
-  this.company=company;
+//   this.name=name;
+//   this.price=price;
+//   this.color=color;
+//   this.company=company;
+
+
+// }
+//   LandRover.prototype.write=function(text){
+//     let h1=document.createElement("h1");
+//     h1.textContent=text;
+//     h1.style.color=this.color;
+//     document.body.append(h1);
+//   }
+
+// let car1=new LandRover("Defender","1.5cr","Blue","LandRover");
+
+
+
+// ------------------  CLASS IN JAVASCRIPT ---------------------
+
+// class Createpencil {
+//   constructor(name, company, price, color) {
+
+//     this.name = name;
+//     this.company = company;
+//     this.price = price;
+//     this.color = color;
+
+//   }
+//   erase(){
+//     document.querySelectorAll("h1").forEach(elem => {
+//       if(elem.style.color===this.color){
+//         elem.remove();
+//       }
+//     });
+//   }
+
+//   write(text) {
+//     let h1 = document.createElement("h1");
+//     h1.style.color = this.color;
+//     h1.textContent = text;
+//     document.body.appendChild(h1);
+//   }
+
+// }
+// let p1 = new Createpencil("nataraj", "nataraj", 10, "black");
+// let p2 = new Createpencil("apsra", "apsra", 20, "red");
+
+
+
+class Createpencil {
+  constructor(name, company, price, color) {
+    this.name = name;
+    this.company = company;
+    this.price = price;
+    this.color = color;
+  }
+
+
+
+  write(text) {
+    let h1 = document.createElement("h1");
+    h1.textContent = `${this.name} : ${text}`;
+    h1.style.color = this.color;
+    document.body.appendChild(h1);
+  }
+
+  erase() {
+
+    document.querySelectorAll("h1").forEach(elem => {
+      if (elem.style.color === this.color) {
+        elem.remove();
+      }
+    });
+  }
 
 
 }
-  LandRover.prototype.write=function(text){
-    let h1=document.createElement("h1");
-    h1.textContent=text;
-    h1.style.color=this.color;
-    document.body.append(h1);
+class Admin extends Createpencil {
+  constructor(name, company, price, color) {
+    super(name,company, price, color)
+    this.role = "admin";
   }
- 
-let car1=new LandRover("Defender","1.5cr","Blue","LandRover");
+
+  remove() {
+    document.querySelectorAll("h1").forEach(elem => {
+      elem.remove();
+    })
+  }
+}
+let p1 = new Createpencil("Nataraj", "Nataraj Company", 10, "red");
+let a1 = new Admin("Admin HU", "Meri hai ", 1000000, "blue");
