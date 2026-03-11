@@ -93,7 +93,7 @@
 // Functional Scope me bhi window hoti hai 
 // function fun(){
 //     console.log(this);
-    
+
 // }
 // fun();
 
@@ -114,6 +114,119 @@
 // ------!!!!!! Event handler pr this keyword 
 
 // document.querySelector("h1").addEventListener("click",function(){
-    
+
 //     console.log(this.style.backgroundColor="red");
 // })
+
+
+
+
+//      ---------------- Call Apply Bind --------------
+
+// let obj = {
+
+//     name: "sandeep",
+//     age: 21,
+// };
+
+// function fun(a,b,c) {
+
+//     console.log(this,a,b,c  );
+
+// }
+
+// fun.call(obj,1,2,3 );
+
+
+// -------- Bind Ka use krke ek project ------------
+
+//  let form = document.querySelector("form");
+// let username = document.querySelector("#name");
+// let role = document.querySelector("#role");
+// let bio = document.querySelector("#bio");
+// let photo = document.querySelector("#photo");
+
+// const userManager = {
+//   users: [],
+//   init: function () {
+//     form.addEventListener("submit", this.submitForm.bind(this));
+//   },
+//   submitForm: function (e) {
+//     e.preventDefault();
+//     this.addUser();
+//   },
+//   addUser: function () {
+//     this.users.push({
+//       username: username.value,
+//       role: role.value,
+//       bio: bio.value,
+//       photo: photo.value,
+//     });
+
+//     form.reset();
+//     this.renderUi();
+//   },
+//   renderUi: function () {
+//     document.querySelector(".users").innerHTML = "";
+//     this.users.forEach(function (user) {
+//       const card = document.createElement("div");
+//       card.className =
+//         "bg-white/90 backdrop-blur rounded-2xl shadow-xl p-8 flex flex-col items-center border border-blue-100 hover:scale-105 transition";
+
+//       // Image
+//       const img = document.createElement("img");
+//       img.className =
+//         "w-28 h-28 rounded-full object-cover mb-5 border-4 border-blue-200 shadow";
+//       img.src = user.photo;
+//       img.alt = "User Photo";
+//       card.appendChild(img);
+
+//       // Name
+//       const name = document.createElement("h2");
+//       name.className = "text-2xl font-bold mb-1 text-blue-700";
+//       name.textContent = user.username;
+//       card.appendChild(name);
+
+//       // Role
+//       const role = document.createElement("p");
+//       role.className = "text-purple-500 mb-2 font-medium";
+//       role.textContent = user.role;
+//       card.appendChild(role);
+
+//       // Description
+//       const desc = document.createElement("p");
+//       desc.className = "text-gray-700 text-center";
+//       desc.textContent = user.bio;
+//       card.appendChild(desc);
+
+//       // Finally, append the card wherever needed, for example:
+
+//       document.querySelector(".users").appendChild(card);
+//     });
+//   },
+//   removeUser: function () {},
+// };
+
+// userManager.init();
+
+
+
+// ------------------------- Object  Oriented Javascript --------------
+
+function LandRover(name,price,color,company){
+
+  this.name=name;
+  this.price=price;
+  this.color=color;
+  this.company=company;
+
+
+}
+  LandRover.prototype.write=function(text){
+    let h1=document.createElement("h1");
+    h1.textContent=text;
+    h1.style.color=this.color;
+    document.body.append(h1);
+  }
+ 
+let car1=new LandRover("Defender","1.5cr","Blue","LandRover");
