@@ -316,4 +316,4 @@ let chai = {
 
 let c1=Object.create(chai);
 console.log(c1);
-c1.pina();
+c1.pina();  
