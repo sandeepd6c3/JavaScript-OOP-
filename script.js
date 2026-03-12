@@ -265,45 +265,55 @@
 
 
 
-class Createpencil {
-  constructor(name, company, price, color) {
-    this.name = name;
-    this.company = company;
-    this.price = price;
-    this.color = color;
-  }
+// class Createpencil {
+//   constructor(name, company, price, color) {
+//     this.name = name;
+//     this.company = company;
+//     this.price = price;
+//     this.color = color;
+//   }
+//   write(text) {
+//     let h1 = document.createElement("h1");
+//     h1.textContent = `${this.name} : ${text}`;
+//     h1.style.color = this.color;
+//     document.body.appendChild(h1);
+//   }
+
+//   erase() {
+//     document.querySelectorAll("h1").forEach(elem => {
+//       if (elem.style.color === this.color) {
+//         elem.remove();
+//       }
+//     });
+//   }
+// }
+// class Admin extends Createpencil {
+//   constructor(name, company, price, color) {
+//     super(name, company, price, color)
+//     this.role = "admin";
+//   }
+//   remove() {
+//     document.querySelectorAll("h1").forEach(elem => {
+//       elem.remove();
+//     })
+//   }
+// }
+// let p1 = new Createpencil("Nataraj", "Nataraj Company", 10, "red");
+// let a1 = new Admin("Admin HU", "Meri hai ", 1000000, "blue");
 
 
 
-  write(text) {
-    let h1 = document.createElement("h1");
-    h1.textContent = `${this.name} : ${text}`;
-    h1.style.color = this.color;
-    document.body.appendChild(h1);
-  }
+// ---------------------- Inheritance ---------------
 
-  erase() {
+let chai = {
 
-    document.querySelectorAll("h1").forEach(elem => {
-      if (elem.style.color === this.color) {
-        elem.remove();
-      }
-    });
-  }
-
-
+  paise: 10,
+  color:"Dark",
+  pina: function () {
+    console.log("Gut Gut Gut ");
+  },
 }
-class Admin extends Createpencil {
-  constructor(name, company, price, color) {
-    super(name,company, price, color)
-    this.role = "admin";
-  }
 
-  remove() {
-    document.querySelectorAll("h1").forEach(elem => {
-      elem.remove();
-    })
-  }
-}
-let p1 = new Createpencil("Nataraj", "Nataraj Company", 10, "red");
-let a1 = new Admin("Admin HU", "Meri hai ", 1000000, "blue");
+let c1=Object.create(chai);
+console.log(c1);
+c1.pina();
