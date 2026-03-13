@@ -335,41 +335,59 @@
 
 // -------------------  Callback Hell ---------------
 
-function ProfileLakerAao(username, cb) {
-   console.log("Fatching Profile Data ....");
+// function ProfileLakerAao(username, cb) {
+//    console.log("Fatching Profile Data ....");
 
+//    setTimeout(() => {
+//       cb({ id: 101, username, age: 26, email: "huihui@hui.com" })
+//    }, 2000)
+// }
+
+// function saarePostLakeraao(id, cb) {
+//    console.log("Fatching Posts ....");
+
+//    setTimeout(() => {
+//       cb({ id: id, posts: ["Hey"] });
+//    }, 3000);
+// }
+
+// function SavedpostNikalo(id, cb) {
+//    console.log("Fatching Saved Posts ....");
+
+//    setTimeout(() => {
+//       cb({ id: id, saved: [1, 2, 3, 4, 5, 67] });
+//    } , 4000)
+
+// }
+
+// ProfileLakerAao("Sandeep", function (data) {
+//    console.log(data);
+
+//    saarePostLakeraao(data.id, function (posts) {
+//       console.log(posts);
+
+//       SavedpostNikalo(data.id, function (saved) {
+// console.log(saved);
+
+//       });
+//    });
+// });
+
+//  ------------------------ Promise -------------------
+
+let pr = new Promise(function (res, rej) {
    setTimeout(() => {
-      cb({ id: 101, username, age: 26, email: "huihui@hui.com" })
-   }, 2000)
-}
+      let rn = Math.floor(Math.random() * 10);
 
-function saarePostLakeraao(id, cb) {
-   console.log("Fatching Posts ....");
-
-   setTimeout(() => {
-      cb({ id: id, posts: ["Hey"] });
+      if (rn > 5) res("Resolve with " + rn);
+      else rej("Rejected with " + rn);
    }, 3000);
-}
+})
 
-function SavedpostNikalo(id, cb) {
-   console.log("Fatching Saved Posts ....");
+pr.then(function (val) {
+   console.log(val);
+})
+   .catch(function (val) {
+      console.log(val);
 
-   setTimeout(() => {
-      cb({ id: id, saved: [1, 2, 3, 4, 5, 67] });
-   } , 4000)
-
-}
-
-ProfileLakerAao("Sandeep", function (data) {
-   console.log(data);
-   
-   saarePostLakeraao(data.id, function (posts) {
-      console.log(posts);
-      
-      SavedpostNikalo(data.id, function (saved) {
-console.log(saved);
-
-      });
-   });
-});
-
+   })
