@@ -1,1 +1,71 @@
- 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* ✅ 'end' ki jagah 'flex-start' — cards top se align honge */
+  gap: 16px;
+  margin-top: 5%;
+  flex-wrap: wrap;           /* ✅ chhoti screen pe cards neeche jayenge */
+}
+
+.card {
+  width: 200px;
+  background-color: #4d5661;
+  border-radius: 12px;       /* ✅ rounded corners add kiye */
+  padding: 20px 16px;        /* ✅ andar se spacing */
+  display: flex;             /* ✅ avatar aur info ko column mein */
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;         /* ✅ real image ke liye zaroori */
+  background-color: #1e3f6e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 14px;       /* ✅ margin % ki jagah fixed px use karo */
+}
+
+.info {
+  text-align: center;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.email {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #a0b4cc;
+  word-break: break-all;     /* ✅ lamba email card se bahar nahi jayega */
+}
+
+/* ✅ Button center karne ka sahi tarika */
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: #19a96d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
