@@ -305,15 +305,71 @@
 
 // ---------------------- Inheritance ---------------
 
-let chai = {
+// let chai = {
 
-  paise: 10,
-  color:"Dark",
-  pina: function () {
-    console.log("Gut Gut Gut ");
-  },
+//   paise: 10,
+//   color:"Dark",
+//   pina: function () {
+//     console.log("Gut Gut Gut ");
+//   },
+// }
+
+// let c1=Object.create(chai);
+// console.log(c1);
+// c1.pina();  
+
+
+
+// function KuchDeerBaadChalunga(fnc){
+
+
+// setTimeout(fnc,Math.floor(Math.random()*10)*1000);
+
+// }
+
+// KuchDeerBaadChalunga(function (){
+//    console.log("Ha me chal gya ");
+// })
+
+
+
+// -------------------  Callback Hell ---------------
+
+function ProfileLakerAao(username, cb) {
+   console.log("Fatching Profile Data ....");
+
+   setTimeout(() => {
+      cb({ id: 101, username, age: 26, email: "huihui@hui.com" })
+   }, 2000)
 }
 
-let c1=Object.create(chai);
-console.log(c1);
-c1.pina();  
+function saarePostLakeraao(id, cb) {
+   console.log("Fatching Posts ....");
+
+   setTimeout(() => {
+      cb({ id: id, posts: ["Hey"] });
+   }, 3000);
+}
+
+function SavedpostNikalo(id, cb) {
+   console.log("Fatching Saved Posts ....");
+
+   setTimeout(() => {
+      cb({ id: id, saved: [1, 2, 3, 4, 5, 67] });
+   } , 4000)
+
+}
+
+ProfileLakerAao("Sandeep", function (data) {
+   console.log(data);
+   
+   saarePostLakeraao(data.id, function (posts) {
+      console.log(posts);
+      
+      SavedpostNikalo(data.id, function (saved) {
+console.log(saved);
+
+      });
+   });
+});
+
