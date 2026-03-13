@@ -395,27 +395,45 @@
 
 //  ----------------- Async/Await syntax ,error handling with try catch -----------------
 
-let pr = new Promise(function (res, rej) {
-   setTimeout(() => {
-      let rn = Math.floor(Math.random() * 10);
+// let pr = new Promise(function (res, rej) {
+//    setTimeout(() => {
+//       let rn = Math.floor(Math.random() * 10);
 
-      if (rn > 5) res("resolve with " + rn);
-      else rej("Rejected with " + rn);
+//       if (rn > 5) res("resolve with " + rn);
+//       else rej("Rejected with " + rn);
 
-   },20000);
-});
+//    },20000);
+// });
 
-async function abcd() {
+// async function abcd() {
 
-   try {
-      let val = await pr;
-      console.log(val);
+//    try {
+//       let val = await pr;
+//       console.log(val);
 
-   }
-   catch (err) {
+//    }
+//    catch (err) {
+//       console.log(err);
+
+//    }
+// }
+
+// abcd();
+
+
+
+// --------------- Fetch API + HTTP Basics ------------
+
+fetch("https://randomuser.me/api/")
+
+   .then((rawdata) => {
+      return rawdata.json();
+   })
+   .then((data) => {
+      console.log(data.results[0].name.first);
+
+   })
+   .catch((err) => {
       console.log(err);
 
-   }
-}
-
-abcd();
+   });
